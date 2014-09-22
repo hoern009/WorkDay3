@@ -11,6 +11,24 @@ Public Class Form1
         Dim st1 As String = txtFirstNum.Text
         Dim st2 As String = txtSecondNum.Text
 
+
+        ' BEEGIN checkpoint 1, must type integers
+        If Not (IsNumeric(st1) And IsNumeric(st2)) Then
+            MessageBox.Show("Please type integers in both boxes")
+            Return
+        End If
+        ' END checkpoint 1
+
+        'BEGIN Checkpoint 2, no negatives
+        If Not (num1 > 0 And num2 > 0) Then
+
+            MessageBox.Show("Please do not type negative numbers")
+            Return
+            'END Checkpoint 2
+
+        End If
+
+
         num1 = CDbl(st1)
         num2 = CDbl(st2)
 
@@ -25,6 +43,13 @@ Public Class Form1
         End If
 
         txtResult.Text = result
+
     End Sub
 
+    Private Sub txtFirstNum_TextChanged(sender As Object, e As EventArgs) Handles txtFirstNum.TextChanged
+
+    End Sub
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class
